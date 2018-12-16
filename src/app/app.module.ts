@@ -6,10 +6,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-
-import { NetworkService } from './services/network.service';
 import { RegisterCustomerComponent } from './register-customer/register-customer.component';
 import { LoginComponent } from './login/login.component';
+
+import { SiteService } from './services/site.service';
+import { AuthService } from './services/auth.service';
+import { NetworkService } from './services/network.service';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +26,7 @@ import { LoginComponent } from './login/login.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [NetworkService],
+  providers: [NetworkService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

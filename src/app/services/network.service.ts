@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http';
-import { Customer } from 'src/app/model/customer.model'
+import { Customer } from 'src/app/model/customer.model';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class NetworkService {
+
     private baseUrl = 'https://api.test-cobiro.com/'
     private authToken: string;
 

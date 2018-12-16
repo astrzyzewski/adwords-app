@@ -4,7 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { RegisterCustomerComponent } from './register-customer/register-customer.component';
 
 const routes: Routes = [
-    { path: '', component: RegisterCustomerComponent }
+    { path: 'register', component: RegisterCustomerComponent },
+    { path: '', redirectTo: '/register', pathMatch: 'full' },
   ];
 
 @NgModule({

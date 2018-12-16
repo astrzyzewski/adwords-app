@@ -1,7 +1,17 @@
-<div>
-  <h3>
-    Welcome to {{ title }}!
-  </h3>
-</div>
-
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">{{ title }}</a>
+    </div>
+  </div>
+  <div class="collapse navbar-collapse">
+    <ul class="nav navbar-nav">
+      <li><a routerLink="/register" routerLinkActive="active">Register Customer</a></li>
+      <li><a href="#">Add Site</a></li>
+      <li><a href="#">Edit Site</a></li>
+      <li><a href="#">Manage Site</a></li>
+    </ul>
+  </div>
+</nav>
+<app-login></app-login>
 <router-outlet></router-outlet>
