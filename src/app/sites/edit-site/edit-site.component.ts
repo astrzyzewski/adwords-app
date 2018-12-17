@@ -12,21 +12,46 @@ export class EditSiteComponent implements OnInit {
   public sites = [];
   public site: Site = new Site();
 
+  public successMessage: string;
+  public errorMessages: string[] = [];
+
   constructor(private siteService: SiteService) { }
 
   ngOnInit() {
     this.siteService.getSites().subscribe(result => {
       this.sites = result.sites;
       this.site = this.sites[0];
+    }, error => {
+      this.successMessage = null;
+
+      if(error.status === 401) {
+        this.errorMessages.push(error.error.message);
+      }
     });
   }
 
-  public onChange(deviceValue) {
-    console.log(deviceValue);
+  public onChange(index) {
+    this.site = this.sites[index];
   }
 
   onSubmit() {
-    this.siteService.editSite(this.site).subscribe(result => console.log(result));
+    this.siteService.editSite(this.site)
+      .subscribe(response => {
+        this.errorMessages = [];
+        this.successMessage = 'Site updated';
+      }, error => {
+        this.successMessage = null;
+
+        if(error.status === 401) {
+          this.errorMessages.push(error.error.message);
+        } else if(error.status === 412) {
+          this.errorMessages.push(error.message);
+        } else if(error.status === 422) {
+          if (error.error.data.name) this.errorMessages.push(error.error.data.name[0]);
+          if (error.error.data.website) this.errorMessages.push(error.error.data.website[0]);
+          if (error.error.data.daily_budget) this.errorMessages.push(error.error.data.daily_budget[0]);
+       }
+      });
   }
 
 }

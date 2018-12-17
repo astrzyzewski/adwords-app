@@ -14,7 +14,6 @@ import { AuthService } from './services/auth.service';
 import { NetworkService } from './services/network.service';
 import { AddSiteComponent } from './sites/add-site/add-site.component';
 import { EditSiteComponent } from './sites/edit-site/edit-site.component';
-import { ManageSiteComponent } from './sites/manage-site/manage-site.component';
 import { MainComponent } from './main/main.component';
 
 
@@ -25,7 +24,6 @@ import { MainComponent } from './main/main.component';
     LoginComponent,
     AddSiteComponent,
     EditSiteComponent,
-    ManageSiteComponent,
     MainComponent
   ],
   imports: [

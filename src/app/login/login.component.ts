@@ -29,7 +29,6 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.authService.logIn({email: this.email, password: this.password})
       .subscribe(response => {
-        console.log(response);
         this.authService.setToken(response.access_token);
         this.authService.setLoggedIn(this.email);
         this.errorMessages = [];
@@ -44,8 +43,6 @@ export class LoginComponent implements OnInit {
         } else {
           this.errorMessages.push(error.error.message);
         }
-
-
        })
   }
 
