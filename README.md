@@ -1,27 +1,11 @@
 # AdwordsApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.3.
+This project was made as an assignment fo the recruitment process with Cobiro ApS.
 
-## Development server
+The focus was on creating a basic application capable of communicating with the API and a functional user interface.
+Authentication was implemented in the most basic way that would allow using the API and needs further development,
+such as maintaining the authentication token after a page reload and using the refresh token to keep the session alive.
+CanActivate should be implemented to block access to areas of the site requiring authentication to use.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+The largest difficulty was interacting with the unfamiliar API - figuring out hw to use it correctly was what took the most time
+and I was unable to link an Adwords account.

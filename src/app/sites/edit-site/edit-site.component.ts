@@ -17,6 +17,12 @@ export class EditSiteComponent implements OnInit {
 
   constructor(private siteService: SiteService) { }
 
+  /**
+   * Calls and subscribes to the results of the site API
+   * On success, displays the resulting list of the customer's sites
+   * in the select dropdown.
+   * On failure, will display error messages
+   */
   ngOnInit() {
     this.siteService.getSites().subscribe(result => {
       this.sites = result.sites;
@@ -34,6 +40,11 @@ export class EditSiteComponent implements OnInit {
     this.site = this.sites[index];
   }
 
+  /**
+   * Calls and subscribes to the results of the patch site API
+   * On success, displays a success message.
+   * On failure, will display error messages
+   */
   onSubmit() {
     this.siteService.editSite(this.site)
       .subscribe(response => {

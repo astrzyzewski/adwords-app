@@ -13,6 +13,10 @@ export class AppComponent implements OnInit {
 
   constructor(private authService: AuthService) {}
 
+  /**
+  * Subscribes to updates on the authentication state to hide/show
+  * links to the login and register pages or the email of the current user
+  */
   ngOnInit() {
     this.authService.getLoginState()
       .subscribe(state => {

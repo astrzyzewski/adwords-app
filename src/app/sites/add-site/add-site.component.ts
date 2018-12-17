@@ -17,6 +17,11 @@ export class AddSiteComponent implements OnInit {
 
   ngOnInit() { }
 
+  /**
+   * Calls and subscribes to the results of the add site API
+   * On success, displays a success message.
+   * On failure, will display error messages
+   */
   onSubmit() {
     this.siteService.addSite(this.site)
       .subscribe(response => {

@@ -3,6 +3,10 @@ import { interval } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { AuthService } from 'src/app/services/auth.service';
 
+/**
+* Component responsible for handling user authentication
+*
+*/
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -18,6 +22,10 @@ export class LoginComponent implements OnInit {
 
   constructor(private authService: AuthService) { }
 
+  /**
+  * Subscribes to updates on the authentication state to hide/show
+  * links to the login and register pages or the email of the current user
+  */
   ngOnInit() {
     this.authService.getLoginState()
       .subscribe(state => {
@@ -26,6 +34,12 @@ export class LoginComponent implements OnInit {
       });
   }
 
+  /**
+   * Calls and subscribes to the results of the login API
+   * On success, will set the login value in AuthService to 'true' and
+   * displays a success message.
+   * On failure, will display error messages
+   */
   onSubmit() {
     this.authService.logIn({email: this.email, password: this.password})
       .subscribe(response => {

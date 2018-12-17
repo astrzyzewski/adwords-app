@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { NetworkService } from 'src/app/services/network.service';
 import { Customer } from 'src/app/model/customer.model';
 
+/**
+* Component responsible for handling registration of new users
+*
+*/
 @Component({
   selector: 'app-register-customer',
   templateUrl: './register-customer.component.html',
@@ -18,6 +22,11 @@ export class RegisterCustomerComponent implements OnInit {
   ngOnInit() {
   }
 
+   /**
+   * Calls and subscribes to the results of the register API call
+   * On success, displays a success message.
+   * On failure, will display error messages
+   */
   public onSubmit() {
     this.networkService.registerCustomer(this.customer)
       .subscribe(response => {

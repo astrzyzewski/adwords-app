@@ -10,6 +10,12 @@ export class NetworkService {
 
     constructor(private http: HttpClient) {}
 
+    /**
+    * Sends a POST login registration to the API
+    * @param customer Customer object holding the body params of the request
+    *
+    * @returns Observable
+    */
     public registerCustomer(customer: Customer): Observable<string> {
       return this.http.post<string>(this.baseUrl + 'api/v1/register', customer)
     }
