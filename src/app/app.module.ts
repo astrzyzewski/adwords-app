@@ -34,7 +34,7 @@ import { MainComponent } from './main/main.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [NetworkService, AuthService],
+  providers: [NetworkService, AuthService, SiteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

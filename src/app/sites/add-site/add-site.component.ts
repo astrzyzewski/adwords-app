@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SiteService } from 'src/app/services/site.service'
+import { SitePost } from 'src/app/model/site-post.model';
 
 @Component({
   selector: 'app-add-site',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddSiteComponent implements OnInit {
 
-  constructor() { }
+  public site: SitePost = new SitePost();
 
-  ngOnInit() {
+  constructor(private siteService: SiteService) { }
+
+  ngOnInit() { }
+
+  onSubmit() {
+    this.siteService.addSite(this.site).subscribe(result => console.log(result));
   }
 
 }

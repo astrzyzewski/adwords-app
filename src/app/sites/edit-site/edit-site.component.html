@@ -1,3 +1,26 @@
-<p>
-  edit-site works!
-</p>
+<div class="container">
+  <select class="form-control" (change)="onChange($event.target.value)">
+    <option *ngFor="let site of sites; let i = index" [value]='i'>{{ site.id }}: {{ site.website }}</option>
+  </select>
+  <form (ngSubmit)="onSubmit()" #addSiteForm="ngForm">
+    <div class="row">
+      <div class="col-md-4 form-group">
+        <label for="website">Website</label>
+        <input type="text" [(ngModel)]="site.website" class="form-control" name="website" id="website">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 form-group">
+        <label for="name">Name</label>
+        <input type="text" [(ngModel)]="site.name" class="form-control" name="name" id="name">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 form-group">
+        <label for="daily_budget">Daily Budget</label>
+        <input type="number" [(ngModel)]="site.daily_budget" class="form-control" name="daily_budget" id="daily_budget">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="!addSiteForm.form.valid">Update</button>
+  </form>
+</div>

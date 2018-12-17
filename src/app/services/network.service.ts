@@ -7,7 +7,6 @@ import { Observable } from 'rxjs/Observable';
 export class NetworkService {
 
     private baseUrl = 'https://api.test-cobiro.com/'
-    private authToken: string;
 
     constructor(private http: HttpClient) {}
 

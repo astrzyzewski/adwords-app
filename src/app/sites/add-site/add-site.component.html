@@ -1,3 +1,17 @@
-<p>
-  add-site works!
-</p>
+<div class="container">
+  <form (ngSubmit)="onSubmit()" #addSiteForm="ngForm">
+    <div class="row">
+      <div class="col-md-4 form-group">
+        <label for="website">Website</label>
+        <input type="text" [(ngModel)]="site.website" class="form-control" name="website" id="website">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 form-group">
+        <label for="name">Name</label>
+        <input type="text" [(ngModel)]="site.name" class="form-control" name="name" id="name">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="!addSiteForm.form.valid">Submit</button>
+  </form>
+</div>

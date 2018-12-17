@@ -1,6 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AddSiteComponent } from './add-site.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { FormsModule } from '@angular/forms'
+import { AuthService } from 'src/app/services/auth.service';
+import { NetworkService } from 'src/app/services/network.service';
+import { SiteService } from 'src/app/services/site.service';
 
 describe('AddSiteComponent', () => {
   let component: AddSiteComponent;
@@ -8,7 +13,16 @@ describe('AddSiteComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddSiteComponent ]
+      declarations: [ AddSiteComponent ],
+      imports: [
+        HttpClientTestingModule,
+        FormsModule,
+      ],
+      providers: [
+        AuthService,
+        NetworkService,
+        SiteService
+      ],
     })
     .compileComponents();
   }));
